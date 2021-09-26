@@ -3,11 +3,14 @@ import pymc3 as pm
 
 from pymc3.theanof import floatX, intX
 from pymc3.util import get_var_name
-from scipy.special import beta
 
 
 def betaln(a, b):
     return tt.gammaln(a) + tt.gammaln(b) - tt.gammaln(a + b)
+
+
+def beta(a, b):
+    return tt.gamma(a) * tt.gamma(b) / tt.gamma(a, b)
 
 
 def log_beta_pdf(x, a, b):
